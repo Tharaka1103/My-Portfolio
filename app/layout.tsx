@@ -9,7 +9,40 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { AuthProvider } from "@/lib/auth-context";
 import { ToastProvider } from '@/contexts/toast-context'
 import { Toaster } from '@/components/ui/toaster'
+import localFont from 'next/font/local'
 
+const tanMeringue = localFont({
+  src: [
+    {
+      path: './fonts/TAN MERINGUE.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TAN MERINGUE.ttf',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-tan-meringue',
+  display: 'swap',
+})
+const tanHeading = localFont({
+  src: [
+    {
+      path: './fonts/TANHEADLINE-Regular.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TANHEADLINE-Regular.ttf',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-tan-heading',
+  display: 'swap',
+})
 
 // Create a component to check session validity
 function SessionCheck({ children }: { children: ReactNode }) {
@@ -41,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className={` ${tanMeringue.variable} ${tanHeading.variable}`}>
       <body>
         <div>
           <AuthProvider>

@@ -7,8 +7,10 @@ import {
   Plus,
   X,
   Share2,
-  Heart
+  Heart,
+  MessageCircle
 } from 'lucide-react';
+import { FiMessageCircle, FiMessageSquare } from 'react-icons/fi';
 
 // Social media items configuration
 const socialItems = [
@@ -36,7 +38,7 @@ const socialItems = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="w-full h-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" x="0px" y="0px" width="50" height="50" >
         <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"/>
         <path fill="#fff" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"/>
       </svg>
@@ -48,7 +50,7 @@ const socialItems = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="w-full h-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" x="0px" y="0px" width="50" height="50" >
         <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/>
         <path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/>
         <path fill="#fff" fillRule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clipRule="evenodd"/>
@@ -61,7 +63,7 @@ const socialItems = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="w-full h-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" x="0px" y="0px" width="40" height="40" >
         <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
         <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
         <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
@@ -76,7 +78,7 @@ const socialItems = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="w-full h-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" x="0px" y="0px" width="50" height="50" >
         <path fill="#03a9f4" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"/>
         <path fill="#fff" d="M24.602,36C18,36,15,32.699,15,30.199C15,28.898,15.898,28,17.199,28c2.801,0,2.102,4.102,7.402,4.102c2.699,0,4.199-1.5,4.199-3c0-0.902-0.402-1.902-2.199-2.402l-5.902-1.5C16,24,15.102,21.398,15.102,18.898c0-5.098,4.699-6.898,9.098-6.898C28.301,12,33,14.199,33,17.199c0,1.301-1,2.102-2.301,2.102c-2.398,0-2-3.402-6.801-3.402c-2.398,0-3.797,1.102-3.797,2.703c0,1.598,1.898,2.098,3.598,2.5l4.402,1C32.898,23.199,34,26,34,28.699C33.898,32.898,30.898,36,24.602,36z"/>
       </svg>
@@ -120,7 +122,7 @@ export function QuickAccessMenu() {
           animate={{ rotate: isOpen ? 90 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          {isOpen ? <X size={24} /> : <Share2 size={24} />}
+          {isOpen ? <X size={24} /> : <FiMessageCircle size={24} />}
         </motion.div>
         
       </motion.button>
@@ -191,30 +193,6 @@ export function QuickAccessMenu() {
                 </motion.div>
               );
             })}
-
-            {/* Arc guide line (optional visual aid - remove in production) */}
-            <motion.div
-              className="absolute inset-0 pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.1 }}
-              exit={{ opacity: 0 }}
-            >
-              <svg 
-                width="200" 
-                height="200" 
-                className="absolute -top-24 -left-24"
-                viewBox="0 0 200 200"
-              >
-                <path
-                  d="M 129.29 129.29 A 100 100 0 0 0 70.71 129.29"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  fill="none"
-                  strokeDasharray="5,5"
-                  className="text-gray-300"
-                />
-              </svg>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -234,30 +212,6 @@ export function QuickAccessMenu() {
                 {hoveredItem}
               </div>
               <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900/95" />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Connection indicator - positioned below the main button */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="absolute -bottom-40 left-50 -translate-x-1/2 pointer-events-none"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ delay: 0.4 }}
-          >
-            <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-200">
-              <div className="flex items-center gap-2 text-xs font-medium text-gray-700">
-                <motion.div
-                  className="w-2 h-2 bg-green-500 rounded-full"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-                <span>Let's Connect!</span>
-              </div>
             </div>
           </motion.div>
         )}
@@ -283,9 +237,9 @@ function SocialButton({
     <div className="relative group">
       <motion.button
         className={cn(
-          "flex items-center justify-center w-12 h-12 rounded-full text-white backdrop-blur-sm border transition-all duration-300",
+          "flex items-center justify-center w-12 h-12 rounded-full text-white transition-all duration-300",
           item.hoverColor,
-          isHovered && "ring-2 ring-white/60 shadow-2xl"
+          isHovered && "ring-2 ring-white/60"
         )}
         whileHover={{ 
           scale: 1.2,

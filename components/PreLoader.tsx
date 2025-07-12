@@ -5,14 +5,15 @@ export function PreLoader() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState("Building your environment");
   const [mounted, setMounted] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const texts = [
-      "Building your environment",
-      "Preparing resources",
-      "Almost ready",
-      "Final touches"
+      "Welcome to my portfolio",
+      "Exploring creativity",
+      "Loading projects",
+      "Almost there"
     ];
     let currentIndex = 0;
 
@@ -22,7 +23,10 @@ export function PreLoader() {
     }, 800);
 
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }, 5000);
 
     return () => {
@@ -35,7 +39,7 @@ export function PreLoader() {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center backdrop-blur-lg z-50">
+    <div className={`fixed inset-0 flex flex-col items-center justify-center backdrop-blur-2xl z-50 transition-all duration-1000 ${isClosing ? 'opacity-0 backdrop-blur-none' : 'opacity-100'}`}>
       <div className="spinner">
         <div></div>
         <div></div>
@@ -44,7 +48,7 @@ export function PreLoader() {
         <div></div>
         <div></div>
       </div>
-      <p className="mt-6 text-lg font-medium text-primary animate-pulse">
+      <p className="mt-6 text-lg font-medium text-black animate-pulse">
         {loadingText}
       </p>
       <style jsx>{`
@@ -56,12 +60,12 @@ export function PreLoader() {
           margin: 0 auto;
         }
         .spinner > div {
-          background-color: rgba(32,177,0,0.2);
+          background-color: rgba(255,159,28,0.2);
           height: 100%;
           position: absolute;
           width: 100%;
-          border: min(3.5px, 0.8vw) solid #20b100;
-          box-shadow: 0 0 15px rgba(32,177,0,0.3);
+          border: min(3.5px, 0.8vw) solid #FF9F1C;
+          box-shadow: 0 0 15px rgba(255,159,28,0.3);
         }
         .spinner div:nth-of-type(1) {
           transform: translateZ(-35.2px) rotateY(180deg);

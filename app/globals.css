@@ -6,6 +6,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.customtext {
+  font-family: 'tanMeringue', sans-serif;
+  font-weight: 1000;
+}
+
+.tanHeading {
+  font-family: 'tanHeading', sans-serif;
+}
+
 @layer base {
   :root {
     --background: #f4fcec;
@@ -19,9 +28,9 @@ body {
     --primary-foreground: #FFF1F2;
     --secondary: #2EC4B6;
     --secondary-foreground: #1A1A1C;
-    --muted: #F4F4F5;
+    --muted: #CBF3F0;
     --muted-foreground: #757575;
-    --accent: #FF9F1C ;
+    --accent: #FF9F1C;
     --accent-foreground: #1A1A1C;
     --destructive: #ff0000;
     --destructive-foreground: #FAFAFA;
@@ -42,30 +51,37 @@ body {
     --color-5: 90 100% 63%;
     --alert: #d0f9c1;
   }
+
   .theme {
     --animate-shine: shine var(--duration) infinite linear;
     --rainbow: rainbow var(--speed, 2s) infinite linear;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
 @layer utilities {
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
     }
+
     33% {
       transform: translate(30px, -50px) scale(1.1);
     }
+
     66% {
       transform: translate(-20px, 20px) scale(0.9);
     }
+
     100% {
       transform: translate(0px, 0px) scale(1);
     }
@@ -113,9 +129,12 @@ body {
 
   /* Gradient text animation */
   @keyframes gradient {
-    0%, 100% {
+
+    0%,
+    100% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
@@ -128,9 +147,12 @@ body {
 
   /* Custom animations */
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-20px);
     }
@@ -177,16 +199,193 @@ body {
   html {
     font-size: 16px;
   }
-  
+
   @media (max-width: 768px) {
     html {
       font-size: 14px;
     }
   }
-  
+
   @media (max-width: 480px) {
     html {
       font-size: 12px;
     }
   }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(46, 196, 182, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(46, 196, 182, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce-subtle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1rem;
+  }
+
+  .tech-tag {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .skills-container {
+    max-width: 1280px;
+  }
+}
+
+/* Performance Optimizations */
+.skill-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.floating-element {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 2dppx) {
+  .skill-logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Interactive Elements */
+.skill-card:hover {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.tech-tag:hover {
+  animation: bounce-subtle 0.6s ease-in-out;
+}
+
+.floating-bg {
+  animation: gradient-shift 8s ease infinite;
+  background-size: 400% 400%;
+}
+.projects-section {
+  height: 300vh; /* This makes the section tall enough to trigger scroll locking */
+}
+
+.projects-section.locked {
+  height: 100vh;
 }
