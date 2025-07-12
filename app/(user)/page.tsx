@@ -984,6 +984,22 @@ function ProjectsSliderSection() {
   const projects = [
     {
       id: 1,
+      title: "TRIMIDS",
+      description: "Full-stack web development agency portfolio and client management platform. Features secure authentication, project showcase, admin dashboard. Built with modern tech stack and enterprise-level security.",
+      image: "/projects/trimids.png",
+      technologies: ["Next.js", "TypeScript", "JWT", "AES-256", "shadcn/ui", "Tailwind CSS", "Magic UI", "Node.js", "MongoDB"],
+      category: "Full Stack",
+      color: "#3B82F6",
+      gradient: "from-blue-600 to-indigo-600",
+      githubUrl: "https://github.com/Tharaka1103/trimids",
+      liveUrl: "https://trimids.com",
+      featured: true,
+      year: "2024",
+      duration: "2 Months",
+      status: "Live"
+    },
+    {
+      id: 2,
       title: "Rupa's Surf Camp - Arugambay",
       description: "Secure hotel booking platform with live surf cam integration for Arugambay beach. Features real-time room availability, secure payment processing, and encrypted user authentication. Enhanced with modern UI components and robust security measures.",
       image: "/projects/rupas.png",
@@ -999,7 +1015,7 @@ function ProjectsSliderSection() {
       status: "Live"
     },
     {
-      id: 2,
+      id: 3,
       title: "Luminex Engineering",
       description: "Modern solar company website with dynamic content management, integrated Google Drive storage for documents, sleek UI components using shadcn, and responsive design. Features customer portal, solar calculator, and appointment scheduling system.",
       image: "/projects/luminex.png",
@@ -1015,7 +1031,7 @@ function ProjectsSliderSection() {
       status: "Live"
     },
     {
-      id: 3,
+      id: 4,
       title: "E-commerce website",
       description: "Advanced e-commerce platform with admin dashboard for product management and automated QR code generation. Features include product catalog, inventory tracking, and mobile-friendly QR code scanning for instant product details access.",
       image: "/projects/eweb.png",
