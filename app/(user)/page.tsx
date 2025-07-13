@@ -31,7 +31,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Pause,
-  Play
+  Play,
+  Building2
 } from "lucide-react";
 import Image from 'next/image'
 // Tech Logo SVGs
@@ -105,6 +106,9 @@ export default function Portfolio() {
 
       {/* Experience Section */}
       <ExperienceSection />
+
+      {/* Achievements Section */}
+      <AchievementsSection />
 
       {/* Services Section */}
       <ServicesSection />
@@ -1256,10 +1260,10 @@ function ProjectsSliderSection() {
                         <div className="absolute top-4 right-4 z-30">
                           <motion.div
                             className={`px-3 py-1 rounded-full text-xs font-bold ${project.status === 'Live'
-                                ? 'bg-green-500 text-white'
-                                : project.status === 'Beta'
-                                  ? 'bg-red-500 text-white'
-                                  : 'bg-gray-500 text-white'
+                              ? 'bg-green-500 text-white'
+                              : project.status === 'Beta'
+                                ? 'bg-red-500 text-white'
+                                : 'bg-gray-500 text-white'
                               }`}
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -1421,8 +1425,8 @@ function ProjectsSliderSection() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${index === currentSlide
-                      ? 'bg-accent scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-accent scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
@@ -1525,13 +1529,12 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
   );
 };
 
-// Enhanced Experience Section
 // Modern Experience Section with Fresh Design
 function ExperienceSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeCard, setActiveCard] = useState(0);
-  
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -1582,9 +1585,9 @@ function ExperienceSection() {
   ];
 
   return (
-    <section 
-      ref={ref} 
-      className="relative py-20 md:py-32 bg-muted overflow-hidden" 
+    <section
+      ref={ref}
+      className="relative py-20 md:py-32 bg-muted overflow-hidden"
       id="experience"
     >
 
@@ -1650,9 +1653,8 @@ function ExperienceSection() {
                 className="group relative"
               >
                 {/* Card Container */}
-                <div className={`relative grid md:grid-cols-2 gap-8 items-center ${
-                  index % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2'
-                }`}>
+                <div className={`relative grid md:grid-cols-2 gap-8 items-center ${index % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2'
+                  }`}>
                   {/* Content Side */}
                   <motion.div
                     className={`order-2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
@@ -1753,7 +1755,7 @@ function ExperienceSection() {
                       >
                         {/* Background Pattern */}
                         <div className="absolute inset-0 opacity-10">
-                          <div 
+                          <div
                             className="w-full h-full"
                             style={{
                               backgroundImage: `radial-gradient(circle at 20% 30%, ${exp.color.includes('blue') ? '#3B82F6' : exp.color.includes('emerald') ? '#10B981' : exp.color.includes('purple') ? '#8B5CF6' : '#F59E0B'} 0%, transparent 50%)`
@@ -1767,8 +1769,8 @@ function ExperienceSection() {
                             className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center shadow-lg relative overflow-hidden`}
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 0.6 }}
-                          >                          
-                          <Image src={exp.image} alt={exp.company} width={64} height={64} className="rounded-2xl" />
+                          >
+                            <Image src={exp.image} alt={exp.company} width={64} height={64} className="rounded-2xl" />
 
                           </motion.div>
                         </div>
@@ -1885,7 +1887,7 @@ function ExperienceSection() {
               📄
             </motion.div>
           </motion.button>
-          
+
           <motion.p
             className="text-gray-600 mt-4 text-sm"
             initial={{ opacity: 0 }}
@@ -2101,7 +2103,7 @@ function ServicesSection() {
 
   return (
     <>
-      <section 
+      <section
         ref={ref}
         className="relative min-h-screen bg-muted overflow-hidden py-16"
         id="services"
@@ -2115,7 +2117,7 @@ function ServicesSection() {
             className="text-center mb-16"
           >
             <motion.div
-                     className="inline-block px-4 py-2 bg-[#2EC4B6] bg-opacity-20 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 mb-5"
+              className="inline-block px-4 py-2 bg-[#2EC4B6] bg-opacity-20 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 mb-5"
               initial={{ scale: 0, rotate: -10 }}
               animate={isInView ? { scale: 1, rotate: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
@@ -2160,16 +2162,16 @@ function ServicesSection() {
               >
                 <motion.div
                   className="relative h-full p-8 rounded-3xl overflow-hidden cursor-pointer bg-primary"
-                  
-                  whileHover={{ 
-                    scale: 1.05, 
+
+                  whileHover={{
+                    scale: 1.05,
                     y: -10,
                     transition: { duration: 0.3 }
                   }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => openServiceDialog(service)}
                 >
-                  
+
                   {/* Content */}
                   <div className="relative z-10">
                     {/* Icon */}
@@ -2204,7 +2206,7 @@ function ServicesSection() {
                     {/* Learn More Button */}
                     <motion.button
                       className="w-full py-3 px-6 rounded-xl font-semibold text-white relative overflow-hidden group/btn bg-accent"
-                      
+
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={(e) => {
@@ -2240,295 +2242,466 @@ function ServicesSection() {
   );
 }
 
+interface Achievement {
+  id: string
+  title: string
+  issuer: string
+  date: string
+  description: string
+  credlyBadgeId: string
+  credentialUrl?: string
+  skills: string[]
+}
+
+const achievements: Achievement[] = [
+  {
+    id: '1',
+    title: 'JavaScript Essentials 1',
+    issuer: 'Cisco Network Academy',
+    date: '2025',
+    description: 'Comprehensive understanding of networking fundamentals including network protocols, routing, switching, and network security.',
+    credlyBadgeId: '0ac23ac1-76d5-4e46-8db8-30cc52f866f2',
+    credentialUrl: 'https://www.credly.com/badges/0ac23ac1-76d5-4e46-8db8-30cc52f866f2',
+    skills: ['Network Protocols', 'Routing', 'Switching', 'Network Security']
+  },
+  {
+    id: '2',
+    title: 'Introduction to Modern AI',
+    issuer: 'Cisco Network Academy',
+    date: '2025',
+    description: 'Foundational understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.',
+    credlyBadgeId: '91b6d3cb-b7d7-40e9-9241-d83de66faf06',
+    credentialUrl: 'https://www.credly.com/badges/91b6d3cb-b7d7-40e9-9241-d83de66faf06',
+    skills: ['Cloud Computing', 'AWS Services', 'Cloud Security', 'Cloud Architecture']
+  },
+  {
+    id: '3',
+    title: 'Introduction to Data Science',
+    issuer: 'Cisco Network Academy',
+    date: '2025',
+    description: 'Demonstrated knowledge of cloud concepts, Azure services, Azure workloads, security and privacy in Azure, and Azure pricing and support.',
+    credlyBadgeId: 'e3b00b2f-217a-4b53-b5ba-60aff1d5fbe2',
+    credentialUrl: 'https://www.credly.com/badges/e3b00b2f-217a-4b53-b5ba-60aff1d5fbe2',
+    skills: ['Azure Cloud', 'Cloud Services', 'Cloud Security', 'Azure Architecture']
+  },
+  // Add more achievements here as needed
+]
+
+function AchievementsSection() {
+  useEffect(() => {
+    // Load Credly embed script
+    const script = document.createElement('script')
+    script.src = '//cdn.credly.com/assets/utilities/embed.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="//cdn.credly.com/assets/utilities/embed.js"]')
+      if (existingScript) {
+        document.body.removeChild(existingScript)
+      }
+    }
+  }, [])
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  return (
+    <section className="py-10 bg-muted">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+            <motion.div
+              className="inline-block px-4 py-2 bg-[#2EC4B6] bg-opacity-20 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 mb-5"
+            >
+              <span >My Achievements</span>
+            </motion.div>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-accent bg-clip-text text-transparent">
+              Achievements & Certifications
+            </h2>
+          </div>
+          <p className="text-lg text-black max-w-2xl mx-auto">
+            Professional certifications and achievements that demonstrate my commitment to continuous learning and expertise in technology.
+          </p>
+        </motion.div>
+
+        {/* Achievements Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+        >
+          {achievements.map((achievement) => (
+            <motion.div
+              key={achievement.id}
+              variants={itemVariants}
+              className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 "
+            >
+              {/* Card Header */}
+              <div className="flex items-start justify-between mb-6">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-black mb-2 transition-colors">
+                    {achievement.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 mb-2">
+                    <Building2 className="h-4 w-4" />
+                    <span>{achievement.issuer}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <Calendar className="h-4 w-4" />
+                    <span>{achievement.date}</span>
+                  </div>
+                </div>
+                {achievement.credentialUrl && (
+                  <a
+                    href={achievement.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-slate-400 hover:text-accent transition-colors"
+                  >
+                    <ExternalLink className="h-5 w-5" />
+                  </a>
+                )}
+              </div>
+
+              {/* Credly Badge */}
+              <div className="flex justify-center">
+                <div className="relative">
+                  <div
+                    data-iframe-width="250"
+                    data-iframe-height="270"
+                    data-share-badge-id={achievement.credlyBadgeId}
+                    data-share-badge-host="https://www.credly.com"
+                    className="transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 // Service Dialog Component
 interface ServiceDialogProps {
   isOpen: boolean;
   onClose: () => void;
   service: any;
 }
-  const ServiceDialog: React.FC<ServiceDialogProps> = ({ isOpen, onClose, service }) => {
-    const [activeTab, setActiveTab] = useState('overview');
+const ServiceDialog: React.FC<ServiceDialogProps> = ({ isOpen, onClose, service }) => {
+  const [activeTab, setActiveTab] = useState('overview');
 
-    if (!service) return null;
+  if (!service) return null;
 
-    const tabs = [
-      { id: 'overview', label: 'Overview', icon: '📋' },
-      { id: 'process', label: 'Process', icon: '🔄' },
-      { id: 'portfolio', label: 'Portfolio', icon: '💼' },
-      { id: 'pricing', label: 'Pricing', icon: '💰' }
-    ];
+  const tabs = [
+    { id: 'overview', label: 'Overview', icon: '📋' },
+    { id: 'process', label: 'Process', icon: '🔄' },
+    { id: 'portfolio', label: 'Portfolio', icon: '💼' },
+    { id: 'pricing', label: 'Pricing', icon: '💰' }
+  ];
 
-    return (
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isOpen ? 1 : 0 }}
+      transition={{ duration: 0.3 }}
+      style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
+    >
+      {/* Backdrop */}
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6"
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
-      >
-        {/* Backdrop */}
-        <motion.div
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 1 : 0 }}
-          onClick={onClose}
-        />
+        onClick={onClose}
+      />
 
-        {/* Dialog */}
-        <motion.div
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl sm:rounded-3xl"
-          style={{
-            background: `linear-gradient(135deg, 
+      {/* Dialog */}
+      <motion.div
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl sm:rounded-3xl"
+        style={{
+          background: `linear-gradient(135deg, 
               rgba(255, 255, 255, 0.1) 0%, 
               rgba(255, 255, 255, 0.05) 100%)`,
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)'
-          }}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ 
-            scale: isOpen ? 1 : 0.8, 
-            opacity: isOpen ? 1 : 0 
-          }}
-          transition={{ duration: 0.3, type: "spring" }}
-        >
-          {/* Header */}
-          <div className="p-4 sm:p-6 md:p-8 pb-0">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center text-xl sm:text-2xl shadow-2xl`}>
-                  {service.icon}
-                </div>
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">{service.title}</h2>
-                  <p className="text-sm sm:text-base text-gray-300">{service.shortDescription}</p>
-                </div>
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{
+          scale: isOpen ? 1 : 0.8,
+          opacity: isOpen ? 1 : 0
+        }}
+        transition={{ duration: 0.3, type: "spring" }}
+      >
+        {/* Header */}
+        <div className="p-4 sm:p-6 md:p-8 pb-0">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center text-xl sm:text-2xl shadow-2xl`}>
+                {service.icon}
               </div>
-              <motion.button
-                onClick={onClose}
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                ✕
-              </motion.button>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white">{service.title}</h2>
+                <p className="text-sm sm:text-base text-gray-300">{service.shortDescription}</p>
+              </div>
             </div>
-
-            {/* Tabs */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {tabs.map((tab) => (
-                <motion.button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-3 sm:px-4 py-2 rounded-xl font-medium transition-all text-sm sm:text-base ${
-                    activeTab === tab.id
-                      ? 'bg-white/20 text-white'
-                      : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-gray-300'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="flex items-center gap-2">
-                    {tab.icon}
-                    {tab.label}
-                  </span>
-                </motion.button>
-              ))}
-            </div>
+            <motion.button
+              onClick={onClose}
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              ✕
+            </motion.button>
           </div>
 
-          {/* Content */}
-          <div className="p-4 sm:p-6 md:p-8 pt-0 overflow-y-auto max-h-[60vh] scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-            {activeTab === 'overview' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-6"
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {tabs.map((tab) => (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3 sm:px-4 py-2 rounded-xl font-medium transition-all text-sm sm:text-base ${activeTab === tab.id
+                    ? 'bg-white/20 text-white'
+                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-gray-300'
+                  }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">Description</h3>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{service.fullDescription}</p>
+                <span className="flex items-center gap-2">
+                  {tab.icon}
+                  {tab.label}
+                </span>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-4 sm:p-6 md:p-8 pt-0 overflow-y-auto max-h-[60vh] scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+          {activeTab === 'overview' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-6"
+            >
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">Description</h3>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{service.fullDescription}</p>
+              </div>
+
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">Technologies</h3>
+                <div className="flex flex-wrap gap-2">
+                  {service.technologies.map((tech: string, i: number) => (
+                    <motion.span
+                      key={tech}
+                      className="px-3 py-1 bg-white/10 rounded-full text-xs sm:text-sm text-gray-300"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: i * 0.05 }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
                 </div>
+              </div>
+            </motion.div>
+          )}
 
-                <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">Technologies</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {service.technologies.map((tech: string, i: number) => (
-                      <motion.span
-                        key={tech}
-                        className="px-3 py-1 bg-white/10 rounded-full text-xs sm:text-sm text-gray-300"
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: i * 0.05 }}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
+          {activeTab === 'process' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-6">My Process</h3>
+              {service.process.map((step: string, i: number) => (
+                <motion.div
+                  key={i}
+                  className="flex items-center gap-4 p-3 sm:p-4 bg-white/5 rounded-xl"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                >
+                  <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white font-bold text-xs sm:text-sm`}>
+                    {i + 1}
                   </div>
-                </div>
-              </motion.div>
-            )}
+                  <span className="text-sm sm:text-base text-gray-300 font-medium">{step}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
 
-            {activeTab === 'process' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-4"
-              >
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-6">My Process</h3>
-                {service.process.map((step: string, i: number) => (
-                  <motion.div
-                    key={i}
-                    className="flex items-center gap-4 p-3 sm:p-4 bg-white/5 rounded-xl"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: i * 0.1 }}
-                  >
-                    <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white font-bold text-xs sm:text-sm`}>
-                      {i + 1}
-                    </div>
-                    <span className="text-sm sm:text-base text-gray-300 font-medium">{step}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
+          {activeTab === 'portfolio' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-6">Recent Projects</h3>
+              {service.portfolio.map((project: string, i: number) => (
+                <motion.div
+                  key={i}
+                  className="flex items-start gap-4 p-3 sm:p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${service.gradient} mt-1.5 flex-shrink-0`} />
+                  <span className="text-sm sm:text-base text-gray-300">{project}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
 
-            {activeTab === 'portfolio' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-4"
-              >
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-6">Recent Projects</h3>
-                {service.portfolio.map((project: string, i: number) => (
-                  <motion.div
-                    key={i}
-                    className="flex items-start gap-4 p-3 sm:p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: i * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${service.gradient} mt-1.5 flex-shrink-0`} />
-                    <span className="text-sm sm:text-base text-gray-300">{project}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-
-            {activeTab === 'pricing' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-6"
-              >
-                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div className="p-4 sm:p-6 bg-white/5 rounded-xl">
-                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Investment</h3>
-                    <div className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                      {service.pricing}
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-400 mt-2">Custom quotes available</p>
+          {activeTab === 'pricing' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-6"
+            >
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="p-4 sm:p-6 bg-white/5 rounded-xl">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Investment</h3>
+                  <div className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                    {service.pricing}
                   </div>
-                
-                  <div className="p-4 sm:p-6 bg-white/5 rounded-xl">
-                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Timeline</h3>
-                    <div className="text-2xl sm:text-3xl font-bold text-white">
-                      {service.deliveryTime}
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-400 mt-2">Depending on complexity</p>
-                  </div>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-2">Custom quotes available</p>
                 </div>
 
                 <div className="p-4 sm:p-6 bg-white/5 rounded-xl">
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">What's Included</h3>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {[
-                      "Initial consultation & strategy",
-                      "Custom design & development",
-                      "Quality assurance & testing",
-                      "Launch support & deployment",
-                      "30-day post-launch support",
-                      "Source code & documentation"
-                    ].map((item, i) => (
-                      <motion.div
-                        key={i}
-                        className="flex items-center gap-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: i * 0.1 }}
-                      >
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full" />
-                        <span className="text-xs sm:text-sm text-gray-300">{item}</span>
-                      </motion.div>
-                    ))}
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Timeline</h3>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">
+                    {service.deliveryTime}
                   </div>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-2">Depending on complexity</p>
                 </div>
-              </motion.div>
-            )}
-          </div>
+              </div>
 
-          {/* Footer */}
-          <div className="p-4 sm:p-6 md:p-8 pt-0">
-            <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
-              <div className="text-center sm:text-left">
-                <p className="text-xs sm:text-sm text-gray-400">
-                  Interested in this service? Let's discuss your project.
-                </p>
+              <div className="p-4 sm:p-6 bg-white/5 rounded-xl">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">What's Included</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {[
+                    "Initial consultation & strategy",
+                    "Custom design & development",
+                    "Quality assurance & testing",
+                    "Launch support & deployment",
+                    "30-day post-launch support",
+                    "Source code & documentation"
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: i * 0.1 }}
+                    >
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full" />
+                      <span className="text-xs sm:text-sm text-gray-300">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-              <div className="flex gap-3">
-                <motion.button
-                  onClick={onClose}
-                  className="px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm rounded-xl text-white text-sm sm:text-base font-medium hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Close
-                </motion.button>
-                <motion.button
-                  className={`px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r ${service.gradient} rounded-xl text-white text-sm sm:text-base font-medium shadow-lg hover:shadow-xl transition-all`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    window.location.href = '#contact';
-                    onClose();
-                  }}
-                >
-                  Get Started
-                </motion.button>
-              </div>
+            </motion.div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="p-4 sm:p-6 md:p-8 pt-0">
+          <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
+            <div className="text-center sm:text-left">
+              <p className="text-xs sm:text-sm text-gray-400">
+                Interested in this service? Let's discuss your project.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <motion.button
+                onClick={onClose}
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm rounded-xl text-white text-sm sm:text-base font-medium hover:bg-white/20 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Close
+              </motion.button>
+              <motion.button
+                className={`px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r ${service.gradient} rounded-xl text-white text-sm sm:text-base font-medium shadow-lg hover:shadow-xl transition-all`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  window.location.href = '#contact';
+                  onClose();
+                }}
+              >
+                Get Started
+              </motion.button>
             </div>
           </div>
+        </div>
 
-          {/* Floating particles in dialog */}
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-0.5 sm:w-1 h-0.5 sm:h-1 bg-white rounded-full opacity-30"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.2, 0.6, 0.2],
-                scale: [0.5, 1, 0.5]
-              }}
-              transition={{
-                duration: 4 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-        </motion.div>
+        {/* Floating particles in dialog */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-0.5 sm:w-1 h-0.5 sm:h-1 bg-white rounded-full opacity-30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [0.5, 1, 0.5]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
       </motion.div>
-    );
-  };
+    </motion.div>
+  );
+};
 
 
 // Enhanced Contact Section
